@@ -23,9 +23,21 @@
       mode: 'u=rwx,g=rx,o='
   with_items: '{{ PROMETHEUS_UNIFI_EXPORTER_DIRS.values() }}'
 
-- name: unifi_exporter binary download
+- name: unifi_exporter binary downloaded
   get_url:
       url: '{{ PROMETHEUS_UNIFI_EXPORTER_DL_BASE }}/{{ PROMETHEUS_UNIFI_EXPORTER_BIN_NAME }}'
       dest: '{{ PROMETHEUS_UNIFI_EXPORTER_DIRS.PROMETHEUS_UNIFI_EXPORTER_BIN_DIR  }}'
       checksum: 'sha256:{{ PROMETHEUS_UNIFI_EXPORTER_PACKAGE_CHECKSUM  }}'
+      mode: 'u=rwx,g=rx,o='
+      owner: '{{ PROMETHEUS_UNIFI_EXPORTER_USER }}'
+      group: '{{ PROMETHEUS_UNIFI_EXPORTER_GROUP }}'
 
+
+- name: unifi_exporter link created
+  file:
+      path: '/usr/local/bin/unifi_exporter'
+      state: 'link'
+      src: '{{ PROMETHEUS_UNIFI_EXPORTER_DIRS.PROMETHEUS_UNIFI_EXPORTER_BIN_DIR  }}'
+      mode: 'u=rwx,g=rx,o='
+      owner: '{{ PROMETHEUS_UNIFI_EXPORTER_USER }}'
+      group: '{{ PROMETHEUS_UNIFI_EXPORTER_GROUP }}'
