@@ -37,7 +37,7 @@
   file:
       path: '/usr/local/bin/unifi_exporter'
       state: 'link'
-      src: '{{ PROMETHEUS_UNIFI_EXPORTER_DIRS.PROMETHEUS_UNIFI_EXPORTER_BIN_DIR  }}'
+      src: '{{ PROMETHEUS_UNIFI_EXPORTER_DIRS.PROMETHEUS_UNIFI_EXPORTER_BIN_DIR  }}/PROMETHEUS_UNIFI_EXPORTER_BIN_NAME'
       mode: 'u=rwx,g=rx,o='
       owner: '{{ PROMETHEUS_UNIFI_EXPORTER_USER }}'
       group: '{{ PROMETHEUS_UNIFI_EXPORTER_GROUP }}'
