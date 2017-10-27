@@ -1,0 +1,16 @@
+galaxy_info:
+    author: Chris Cowley
+    description: Deploys Prometheus Unifi Exporter
+
+    license: See LICENSE
+    min_ansible_version: 2.4
+    platforms:
+        - name: Debian
+          versions:
+            - 8
+    galaxy_tags:
+        - unifiexporter
+        - unifi
+        - prometheus
+
+dependencies: []
